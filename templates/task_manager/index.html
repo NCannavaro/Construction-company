@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Gravity Home</h1>
+    <p>Welcome!</p>
+    <h2>Dynamic content</h2>
+    <p>The gravity service has the following record counts:</p>
+    <ul>
+        <li><strong>Projects:</strong> {{ num_projects }}</li>
+        <li><strong>Employees:</strong> {{ num_employees }}</li>
+        <li><strong>Tasks:</strong> {{ num_tasks }}</li>
+    </ul>
+
+    <p>You have visited this page
+        {{ num_visits }} time{{ num_visits|pluralize }}.
+    </p>
+
+{% endblock %}
