@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.views import generic
 
 from task_manager.models import Employee, Project, Task
 
@@ -23,3 +24,13 @@ def index(request):
     }
 
     return render(request, "task_manager/index.html", context=context)
+
+
+class ProjectListView(generic.ListView):
+    model = Project
+    template_name = "task_manager/project_list.html"
+
+
+class TaskListView(generic.ListView):
+    model = Task
+    template_name = "task_manager/task_list.html"

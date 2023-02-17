@@ -16,6 +16,9 @@ class Project(models.Model):
     registration_number = models.CharField(max_length=255, unique=True)
     address = models.CharField(max_length=255, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class TypeOfWork(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -49,3 +52,6 @@ class Task(models.Model):
     price = models.BooleanField()
     status = models.CharField(max_length=255)
     employees = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="tasks")
+
+    def __str__(self):
+        return f"Project: {self.project}, {self.type_of_work}"
