@@ -7,12 +7,12 @@
     <ul class="list-unstyled components">
         <li class="active">
             <a href="{% url 'task_manager:index' %}">
-                <i class="fas fa-briefcase"></i>
+                <i class="fas fa-home"></i>
                 Home
             </a>
         </li>
         <li>
-            <a href="{% url 'task_manager:projects-list' %}">
+            <a href="{% url 'task_manager:project-list' %}">
                 <i class="fas fa-briefcase"></i>
                 Projects
             </a>
@@ -33,15 +33,15 @@
             </ul>
         </li>
         <li>
-            <a href="#">
-                <i class="fas fa-image"></i>
-                Portfolio
+            <a href="{% url 'task_manager:employee-list' %}">
+                <i class="fas fa-user-friends"></i>
+                Employees
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="fas fa-question"></i>
-                FAQ
+                <i class="fas fa-image"></i>
+                Portfolio
             </a>
         </li>
         <li>

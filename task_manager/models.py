@@ -39,6 +39,10 @@ class Employee(AbstractUser):
     position = models.ForeignKey("Position", on_delete=models.CASCADE, default=1)
     number_of_completed_tasks = models.IntegerField(default=0)
 
+    @property
+    def full_name(self):
+        return self.first_name + " " + self.last_name
+
     class Meta:
         verbose_name = "Employee"
         verbose_name_plural = "Employees"

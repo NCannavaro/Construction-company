@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+
   <h1>Projects</h1>
 
   {% if task_list %}
     <table class="table">
-      <tr>
+      <tr class="table-active">
         <th>ID</th>
-        <th>project</th>
-        <th>type_of_work</th>
-        <th>urgency</th>
+        <th>Project</th>
+        <th>Type of work</th>
+        <th>Urgency</th>
       </tr>
+
     {% for task in task_list %}
       <tr>
         <th>{{ task.pk }}</th>

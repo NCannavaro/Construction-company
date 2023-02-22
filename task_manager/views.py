@@ -26,6 +26,11 @@ def index(request):
     return render(request, "task_manager/index.html", context=context)
 
 
+class EmployeeListView(generic.ListView):
+    model = Employee
+    template_name = "task_manager/employee_list.html"
+
+
 class ProjectListView(generic.ListView):
     model = Project
     template_name = "task_manager/project_list.html"

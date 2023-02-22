@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Employees</h1>
+
+  {% if employee_list %}
+    <table class="table">
+      <tr class="table-active">
+        <th>Username</th>
+        <th>Full name</th>
+        <th>Email</th>
+        <th>Position</th>
+      </tr>
+
+    {% for employee in employee_list %}
+      <tr>
+        <th>{{ employee.username }}</th>
+        <th>{{ employee.full_name }}</th>
+        <th>{{ employee.email }}</th>
+        <th>{{ employee.position }}</th>
+      </tr>
+    {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no employees available</p>
+  {% endif %}
+
+{% endblock %}
