@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <h1>Projects</h1>
+  <h1>Tasks</h1>
 
   {% if task_list %}
     <table class="table">
@@ -15,7 +15,7 @@
 
     {% for task in task_list %}
       <tr>
-        <th>{{ task.pk }}</th>
+        <th><a href="{% url "task_manager:task-detail" pk=task.pk%}">{{ task.pk }}</a></th>
         <th>{{ task.project }}</th>
         <th>{{ task.type_of_work }}</th>
         <th>{{ task.get_urgency_display}}</th>

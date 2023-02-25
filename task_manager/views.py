@@ -45,3 +45,7 @@ class ProjectListView(generic.ListView):
 class TaskListView(generic.ListView):
     model = Task
     template_name = "task_manager/task_list.html"
+
+
+class TaskDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Task
