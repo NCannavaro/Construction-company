@@ -9,7 +9,9 @@
         <th></th>
       </tr>
     {% for project in project_list %}
-      <li>{{ project.name }}</li>
+    <div class="list-group">
+      <a href="{% url "task_manager:project-detail" pk=project.pk%}" class="list-group-item list-group-item-action">{{ project.name }}</a>
+    </div>
     {% endfor %}
     </table>
   {% else %}
