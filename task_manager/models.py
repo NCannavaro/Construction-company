@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+from django.urls import reverse
 
 URGENCY_CHOICES = (
     (0, "minor"),
@@ -46,6 +46,9 @@ class Employee(AbstractUser):
     class Meta:
         verbose_name = "Employee"
         verbose_name_plural = "Employees"
+
+    def get_absolute_url(self):
+        return reverse("task_manager:employee-detail", kwargs={"pk": self.pk})
 
 
 class Task(models.Model):

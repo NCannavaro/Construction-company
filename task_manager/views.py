@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
@@ -29,6 +30,11 @@ def index(request):
 class EmployeeListView(generic.ListView):
     model = Employee
     template_name = "task_manager/employee_list.html"
+
+
+class EmployeeDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Employee
+    queryset = Employee.objects.all()
 
 
 class ProjectListView(generic.ListView):
