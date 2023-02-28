@@ -2,8 +2,13 @@
 
 {% block content %}
 
-  <h1>Employees</h1>
-
+  <h1>Employees
+  {% if request.user.is_superuser  %}
+    <a href="{% url 'task_manager:employee-create' %}" class="btn btn-primary link-to-page">
+  Create
+  </a>
+  {% endif %}
+  </h1>
   {% if employee_list %}
     <table class="table">
       <tr class="table-active">

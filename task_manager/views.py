@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
+from task_manager.forms import EmployeeCreationForm
 from task_manager.models import Employee, Project, Task
 
 
@@ -34,7 +35,12 @@ class EmployeeListView(generic.ListView):
 
 class EmployeeDetailView(LoginRequiredMixin, generic.DetailView):
     model = Employee
-    queryset = Employee.objects.all()
+    # queryset = Employee.objects.all().prefetch_related("tasks__project")
+
+
+class EmployeeCreationView(LoginRequiredMixin, generic.CreateView):
+    model = Employee
+    form_class = EmployeeCreationForm
 
 
 class ProjectListView(generic.ListView):
