@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import request
 from django.shortcuts import render
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 
-from task_manager.forms import EmployeeCreationForm
+from task_manager.forms import EmployeeCreationForm, EmployeeUpdateForm
 from task_manager.models import Employee, Project, Task
 
 
@@ -41,6 +43,14 @@ class EmployeeDetailView(LoginRequiredMixin, generic.DetailView):
 class EmployeeCreationView(LoginRequiredMixin, generic.CreateView):
     model = Employee
     form_class = EmployeeCreationForm
+
+
+class EmployeeUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Employee
+    form_class = EmployeeUpdateForm
+
+    def get_success_url(self):
+        return reverse("task_manager:employee-detail", args=(self.object.id,))
 
 
 class ProjectListView(generic.ListView):
