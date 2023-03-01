@@ -56,7 +56,7 @@ class Task(models.Model):
     type_of_work = models.ForeignKey("TypeOfWork", on_delete=models.CASCADE)
     description = models.TextField()
     urgency = models.IntegerField(choices=URGENCY_CHOICES, default=1)
-    price = models.BooleanField()
+    price = models.FloatField()
     status = models.CharField(max_length=255)
     employees = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="tasks")
 

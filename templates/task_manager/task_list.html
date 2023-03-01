@@ -14,6 +14,7 @@
         <th>Project</th>
         <th>Type of work</th>
         <th>Urgency</th>
+        <th>Price</th>
       </tr>
 
     {% for task in task_list %}
@@ -22,6 +23,7 @@
         <th>{{ task.project }}</th>
         <th>{{ task.type_of_work }}</th>
         <th>{{ task.get_urgency_display}}</th>
+        <th>{{ task.price}}</th>
       </tr>
     {% endfor %}
     </table>

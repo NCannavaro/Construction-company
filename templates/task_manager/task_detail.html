@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+  <a href="{% url 'task_manager:task-update' pk=task.id %}" class="btn btn-secondary link-to-page">
+      Update
+  </a>
+
   <h1>{{ task.project.name }}</h1>
   <p1>{{ task.description }}</p1>
 
