@@ -5,7 +5,11 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 
-from task_manager.forms import EmployeeCreationForm, EmployeeUpdateForm
+from task_manager.forms import (
+    EmployeeCreationForm,
+    EmployeeUpdateForm,
+    ProjectsSearchForm
+)
 from task_manager.models import Employee, Project, Task
 
 
@@ -53,9 +57,30 @@ class EmployeeUpdateView(LoginRequiredMixin, generic.UpdateView):
         return reverse("task_manager:employee-detail", args=(self.object.id,))
 
 
-class ProjectListView(generic.ListView):
+class ProjectListView(LoginRequiredMixin, generic.ListView):
     model = Project
     template_name = "task_manager/project_list.html"
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ProjectListView, self).get_context_data(**kwargs)
+
+        name = self.request.GET.get("name", "")
+        context["search_form"] = ProjectsSearchForm(
+            initial={
+                "name": name
+            }
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = Project.objects.all()
+
+        form = ProjectsSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+        return queryset
 
 
 class ProjectDetailView(LoginRequiredMixin, generic.DetailView):
