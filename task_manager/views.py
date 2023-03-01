@@ -8,7 +8,7 @@ from django.views import generic
 from task_manager.forms import (
     EmployeeCreationForm,
     EmployeeUpdateForm,
-    ProjectsSearchForm
+    ProjectsSearchForm, TaskForm
 )
 from task_manager.models import Employee, Project, Task
 
@@ -94,3 +94,9 @@ class TaskListView(generic.ListView):
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
     model = Task
+
+
+class TaskCreationView(LoginRequiredMixin, generic.CreateView):
+    model = Employee
+    form_class = TaskForm
+    success_url = reverse_lazy("task_manager:task-list")
