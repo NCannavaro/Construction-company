@@ -57,6 +57,11 @@ class EmployeeUpdateView(LoginRequiredMixin, generic.UpdateView):
         return reverse("task_manager:employee-detail", args=(self.object.id,))
 
 
+class EmployeeDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Employee
+    success_url = reverse_lazy("task_manager:employee-list")
+
+
 class ProjectListView(LoginRequiredMixin, generic.ListView):
     model = Project
     template_name = "task_manager/project_list.html"

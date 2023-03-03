@@ -16,21 +16,11 @@
                 <i class="fas fa-briefcase"></i>
                 Projects
             </a>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+        <li>
+            <a href="{% url 'task_manager:task-list' %}">
                 <i class="fas fa-copy"></i>
                 Tasks
             </a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="{% url 'task_manager:task-list' %}">Test tasks</a>
-                </li>
-                <li>
-                    <a href="#">Page 2</a>
-                </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-            </ul>
         </li>
         <li>
             <a href="{% url 'task_manager:employee-list' %}">
