@@ -11,7 +11,7 @@ from task_manager.views import (
     EmployeeCreationView,
     EmployeeUpdateView,
     TaskCreateView,
-    TaskUpdateView, EmployeeDeleteView,
+    TaskUpdateView, EmployeeDeleteView, toggle_assign_to_task,
 )
 
 urlpatterns = [
@@ -29,6 +29,11 @@ urlpatterns = [
     path("tasks/<int:pk>/", TaskDetailView.as_view(), name="task-detail"),
     path("tasks/create/", TaskCreateView.as_view(), name="task-create"),
     path("tasks/update/<int:pk>/", TaskUpdateView.as_view(), name="task-update"),
+    path(
+        "tasks/<int:pk>/toggle-assign/",
+        toggle_assign_to_task,
+        name="toggle-tasks-assign",
+    ),
 ]
 
 app_name = "task_manager"

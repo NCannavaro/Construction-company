@@ -1,212 +1,83 @@
 {% extends "base.html" %}
 
 {% block content %}
-{#  <h1>#}
-{#    Tasks#}
-{#      <a href="{% url 'task_manager:task-create' %}" class="btn btn-success active, text-right" role="button" aria-pressed="true">Create</a>#}
-{#  </h1>#}
-
-{#  {% if task_list %}#}
-{#    <table class="table">#}
-{#      <tr class="table-active">#}
-{#        <th>ID</th>#}
-{#        <th>Project</th>#}
-{#        <th>Type of work</th>#}
-{#        <th>Urgency</th>#}
-{#        <th>Price</th>#}
-{#      </tr>#}
-{##}
-{#    {% for task in task_list %}#}
-{#      <tr>#}
-{#        <th><a href="{% url "task_manager:task-detail" pk=task.pk%}">{{ task.pk }}</a></th>#}
-{#        <th>{{ task.project }}</th>#}
-{#        <th>{{ task.type_of_work }}</th>#}
-{#        <th>{{ task.get_urgency_display}}</th>#}
-{#        <th>{{ task.price}}</th>#}
-{#      </tr>#}
-{#    {% endfor %}#}
-{#    </table>#}
-{#  {% else %}#}
-{#    <p>There are no tasks available</p>#}
-{#  {% endif %}#}
 
   <div class="main-content">
-      <!-- Table -->
-      <h2 class="mb-12">Tables Example</h2><div class="row">
+  <!-- Table -->
+    <div class="col">
+      <div class="card shadow">
+      <div class="card-header border-0">
+        <h3 class="mb-0">Card tables</h3>
+      </div>
 
-        <div class="col">
-          <div class="card shadow">
-            <div class="card-header border-0">
-              <h3 class="mb-0">Card tables</h3>
+      <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Price</th>
+              <th scope="col">Status</th>
+              <th scope="col">Employees</th>
+              <th scope="col">Completion</th>
+              <th scope="col">ID</th>
+            </tr>
+          </thead>
+
+        {% for task in task_list %}
+
+        <tr>
+
+          <th scope="row">
+            <div class="media align-items-center">
+              <div class="media-body">
+                <span class="mb-0 text-sm">{{ task.project}}</span>
+              </div>
             </div>
+          </th>
 
-            <div class="table-responsive">
-              <table class="table align-items-center table-flush">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">Project</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Users</th>
-                    <th scope="col">Completion</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-      {% for task in task_list %}
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">Argon Design System</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      ${{ task.price }} USD
-                    </td>
-                    <td>
-                      <i class="bg-warning"></i> {{ task.get_urgency_display}}
-                    </td>
-                    <td>
-                      <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
-                        </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
-                        </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
-                        </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center">
-                        <span class="mr-2">60%</span>
-                        <div>
-                          <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-right">
-                      <div class="dropdown">
-                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-              {% endfor %}
+          <td>
+            ${{ task.price }} USD
+          </td>
 
-{#                            <div class="job-box d-md-flex align-items-center justify-content-between mb-30">#}
-{#                                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">#}
-{#                                    <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">#}
-{#                                        UX#}
-{#                                    </div>#}
-{#                                    <div class="job-content">#}
-{#                                        <h5 class="text-center text-md-left">Ui/Ux Developer</h5>#}
-{#                                        <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">#}
-{#                                            <li class="mr-md-4">#}
-{#                                                <i class="zmdi zmdi-pin mr-2"></i> Los Angeles#}
-{#                                            </li>#}
-{#                                            <li class="mr-md-4">#}
-{#                                                <i class="zmdi zmdi-money mr-2"></i> 2500-3500/pm#}
-{#                                            </li>#}
-{#                                            <li class="mr-md-4">#}
-{#                                                <i class="zmdi zmdi-time mr-2"></i> Full Time#}
-{#                                            </li>#}
-{#                                        </ul>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="job-right my-4 flex-shrink-0">#}
-{#                                    <a href="#" class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>#}
-{#                                </div>#}
-{#                            </div>#}
-{##}
-{#                            <div class="job-box d-md-flex align-items-center justify-content-between mb-30">#}
-{#                                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">#}
-{#                                    <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">#}
-{#                                        GD#}
-{#                                    </div>#}
-{#                                    <div class="job-content">#}
-{#                                        <h5 class="text-center text-md-left">Graphic Designer</h5>#}
-{#                                        <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">#}
-{#                                            <li class="mr-md-4">#}
-{#                                                <i class="zmdi zmdi-pin mr-2"></i> Los Angeles#}
-{#                                            </li>#}
-{#                                            <li class="mr-md-4">#}
-{#                                                <i class="zmdi zmdi-money mr-2"></i> 2500-3500/pm#}
-{#                                            </li>#}
-{#                                            <li class="mr-md-4">#}
-{#                                                <i class="zmdi zmdi-time mr-2"></i> Full Time#}
-{#                                            </li>#}
-{#                                        </ul>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="job-right my-4 flex-shrink-0">#}
-{#                                    <a href="#" class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>#}
-{#                                </div>#}
-{#                            </div>#}
-{##}
-{#                            <div class="job-box d-md-flex align-items-center justify-content-between mb-30">#}
-{#                                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">#}
-{#                                    <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">#}
-{#                                        JS#}
-{#                                    </div>#}
-{#                                    <div class="job-content">#}
-{#                                        <h5 class="text-center text-md-left">Javascript Developer</h5>#}
-{#                                        <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">#}
-{#                                            <li class="mr-md-4">#}
-{#                                                <i class="zmdi zmdi-pin mr-2"></i> Los Angeles#}
-{#                                            </li>#}
-{#                                            <li class="mr-md-4">#}
-{#                                                <i class="zmdi zmdi-money mr-2"></i> 2500-3500/pm#}
-{#                                            </li>#}
-{#                                            <li class="mr-md-4">#}
-{#                                                <i class="zmdi zmdi-time mr-2"></i> Full Time#}
-{#                                            </li>#}
-{#                                        </ul>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="job-right my-4 flex-shrink-0">#}
-{#                                    <a href="#" class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>#}
-{#                                </div>#}
-{#                            </div>#}
-{##}
-{#                        </div>#}
-{#                    </div>#}
+          <td>
+            <i class="bg-warning"></i> {{ task.get_urgency_display }}
+          </td>
 
-                    <!-- START Pagination -->
-{#                    <nav aria-label="Page navigation">#}
-{#                        <ul class="pagination pagination-reset justify-content-center">#}
-{#                            <li class="page-item disabled">#}
-{#                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">#}
-{#                                    <i class="zmdi zmdi-long-arrow-left"></i>#}
-{#                                </a>#}
-{#                            </li>#}
-{#                            <li class="page-item"><a class="page-link" href="#">1</a></li>#}
-{#                            <li class="page-item d-none d-md-inline-block"><a class="page-link" href="#">2</a></li>#}
-{#                            <li class="page-item d-none d-md-inline-block"><a class="page-link" href="#">3</a></li>#}
-{#                            <li class="page-item"><a class="page-link" href="#">...</a></li>#}
-{#                            <li class="page-item"><a class="page-link" href="#">8</a></li>#}
-{#                            <li class="page-item">#}
-{#                                <a class="page-link" href="#">#}
-{#                                    <i class="zmdi zmdi-long-arrow-right"></i>#}
-{#                                </a>#}
-{#                            </li>#}
-{#                        </ul>#}
-{#                    </nav>#}
-                    <!-- END Pagination -->
+          <td>
+            <div class="avatar-group">
+              {% if task in user.tasks.all %}
+                {% for employeers in task.employees.all %}
+              <a href="{% url 'task_manager:employee-detail' pk=employeers.id %}" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                <span class="mb-0 text-sm">
+                    {{ employeers.full_name }},
+                  {% endfor %}
+                </span>
+              </a>
+              {% endif %}
+            </div>
+          </td>
 
-{% endblock %}
+          <td>
+            <div class="d-flex align-items-center">
+              <span class="mr-2">60%</span>
+              <div>
+                <div class="progress">
+                  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                       aria-valuemax="100" style="width: 60%;"></div>
+                </div>
+              </div>
+            </div>
+          </td>
+
+          <td>
+            <a href="{% url 'task_manager:task-detail' pk=task.id%}"><button  type="button" class="btn btn-info">{{ task.id }}</button></a>
+          </td>
+
+        </tr>
+        {% endfor %}
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

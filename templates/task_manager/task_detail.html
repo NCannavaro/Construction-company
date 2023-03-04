@@ -8,5 +8,19 @@
 
   <h1>{{ task.project.name }}</h1>
   <p1>{{ task.description }}</p1>
-
+  <h1>
+  Task
+          {% if task in user.tasks.all %}
+            <a href="{% url 'task_manager:toggle-tasks-assign' pk=task.id %}" class="btn btn-danger link-to-page">
+              Delete me from this task
+            </a>
+          {% else %}
+            <a href="{% url 'task_manager:toggle-tasks-assign' pk=task.id %}" class="btn btn-success link-to-page">
+              Assign me from this task {{ user.projects.all }}
+            </a>
+          {% endif %}
+  </h1>
+  {% for task in task.employees.all %}
+  <p>{{ task }}</p>
+  {% endfor %}
 {% endblock %}

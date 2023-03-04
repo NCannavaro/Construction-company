@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import request
+from django.http import request, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
@@ -36,12 +36,13 @@ def index(request):
 
 class EmployeeListView(generic.ListView):
     model = Employee
+    queryset = Employee.objects.prefetch_related("tasks__project").select_related("position")
     template_name = "task_manager/employee_list.html"
 
 
 class EmployeeDetailView(LoginRequiredMixin, generic.DetailView):
     model = Employee
-    # queryset = Employee.objects.all().prefetch_related("tasks__project")
+    queryset = Employee.objects.prefetch_related("tasks__project").select_related("position")
 
 
 class EmployeeCreationView(LoginRequiredMixin, generic.CreateView):
@@ -95,6 +96,7 @@ class ProjectDetailView(LoginRequiredMixin, generic.DetailView):
 class TaskListView(generic.ListView):
     model = Task
     template_name = "task_manager/task_list.html"
+    queryset = Task.objects.select_related("project", "type_of_work").prefetch_related("employees__position",)
 
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
@@ -111,3 +113,15 @@ class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy("task_manager:task-list")
+
+
+@login_required
+def toggle_assign_to_task(request, pk):
+    employee = Employee.objects.get(id=request.user.id)
+    if (
+        Task.objects.get(id=pk) in employee.tasks.all()
+    ):  # probably could check if car exists
+        employee.tasks.remove(pk)
+    else:
+        employee.tasks.add(pk)
+    return HttpResponseRedirect(reverse_lazy("task_manager:task-detail", args=[pk]))
