@@ -66,6 +66,11 @@
           </div>
         </nav>
           {% block content %}{% endblock %}
+
+      {% block pagination %}
+        {% include 'includes/pagination.html' %}
+      {% endblock %}
+
       </div>
     {% endblock %}
     <!-- jQuery CDN - Slim version (=without AJAX) -->

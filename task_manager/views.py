@@ -38,6 +38,7 @@ class EmployeeListView(generic.ListView):
     model = Employee
     queryset = Employee.objects.prefetch_related("tasks__project").select_related("position")
     template_name = "task_manager/employee_list.html"
+    paginate_by = 3
 
 
 class EmployeeDetailView(LoginRequiredMixin, generic.DetailView):
@@ -66,6 +67,7 @@ class EmployeeDeleteView(LoginRequiredMixin, generic.DeleteView):
 class ProjectListView(LoginRequiredMixin, generic.ListView):
     model = Project
     template_name = "task_manager/project_list.html"
+    paginate_by = 3
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ProjectListView, self).get_context_data(**kwargs)
@@ -96,6 +98,7 @@ class ProjectDetailView(LoginRequiredMixin, generic.DetailView):
 class TaskListView(generic.ListView):
     model = Task
     template_name = "task_manager/task_list.html"
+    paginate_by = 3
     queryset = Task.objects.select_related("project", "type_of_work").prefetch_related("employees__position",)
 
 
