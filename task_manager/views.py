@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Sum
 from django.http import request, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
@@ -20,6 +21,7 @@ def index(request):
     num_employees = Employee.objects.count()
     num_projects = Project.objects.count()
     num_tasks = Task.objects.count()
+    tasks = Employee.objects.aggregate(finished_tasks=Sum("number_of_completed_tasks"))
 
     num_visits = request.session.get("num_visits", 0)
     request.session["num_visits"] = num_visits + 1
@@ -28,6 +30,7 @@ def index(request):
         "num_employees": num_employees,
         "num_projects": num_projects,
         "num_tasks": num_tasks,
+        "tasks": tasks["finished_tasks"],
         "num_visits": num_visits + 1,
     }
 

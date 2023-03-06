@@ -1,22 +1,45 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
         <!-- Page Content  -->
-            <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <div class="line"></div>
-
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <div class="line"></div>
-
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <div class="line"></div>
-
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <!-- banner section start -->
+<div class="choose_section layout_padding">
+    <div class="container">
+      <h1 class="choose_taital"><span>Why </span> <img src="{% static "images/PngItem_5266157.png"%}"> <span style="color: #1f1f1f">Choose
+          Us</span></h1>
+      <p class="choose_text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua</p>
+      <div class="choose_section_2 layout_padding">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="choose_box">
+              <h1 class="client_taital">{{ num_projects }}+</h1>
+              <h4 class="client_text">Our projects</h4>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="choose_box">
+              <h1 class="client_taital">{{ num_employees }}+</h1>
+              <h4 class="client_text">Employees</h4>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="choose_box">
+              <h1 class="client_taital">{{ num_tasks }}+</h1>
+              <h4 class="client_text">Tasks</h4>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="choose_box">
+              <h1 class="client_taital">{{ tasks }}+</h1>
+              <h4 class="client_text">Awards</h4>
+            </div>
+          </div>
+        </div>
+        <div class="image_3"><img src="{% static "images/23933199.png" %}"></div>
+        <div class="get_bt"><a href="#">Get A quote</a></div>
+      </div>
+    </div>
+  </div>
+    <!-- banner section end -->
 {% endblock %}
