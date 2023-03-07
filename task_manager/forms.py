@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ValidationError
+from django.core.validators import MaxLengthValidator, MinLengthValidator
 
 from task_manager.models import Employee, Task
 
@@ -12,18 +14,39 @@ class EmployeeCreationForm(UserCreationForm):
             "email",
             "first_name",
             "last_name",
-            "position"
+            "position",
         )
 
 
 class EmployeeUpdateForm(forms.ModelForm):
+    phone_number = forms.CharField(
+        required=True,
+        validators=[
+            MaxLengthValidator(13),
+            MinLengthValidator(13),
+        ]
+    )
+
+    def clean_phone_number(self):
+        phone_number = self.cleaned_data["phone_number"]
+        if phone_number[0] != "+":
+            raise ValidationError(
+                "The number must start with '+' (+380) "
+            )
+        if not phone_number[1:].isdigit():
+            raise ValidationError(
+                "All characters except the first must be digits"
+            )
+        return phone_number
+
     class Meta:
         model = Employee
         fields = [
             "email",
             "first_name",
             "last_name",
-            "position"
+            "phone_number",
+            "position",
         ]
 
 

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'crispy_forms',
     'task_manager',
+    "phonenumber_field",
 
 ]
 
@@ -78,6 +79,9 @@ TEMPLATES = [
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
+# PHONENUMBER_DEFAULT_REGION = 'UA'
 
 WSGI_APPLICATION = 'Construction_company.wsgi.application'
 

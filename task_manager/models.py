@@ -1,7 +1,9 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import RegexValidator
 from django.db import models
 from django.urls import reverse
+from phonenumber_field.modelfields import PhoneNumberField
 
 URGENCY_CHOICES = (
     (0, "minor"),
@@ -36,6 +38,7 @@ class Position(models.Model):
 
 
 class Employee(AbstractUser):
+    phone_number = models.CharField(max_length=13)
     position = models.ForeignKey("Position", on_delete=models.CASCADE, default=1)
     number_of_completed_tasks = models.IntegerField(default=0)
 
