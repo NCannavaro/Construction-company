@@ -21,7 +21,9 @@ def index(request):
     num_employees = Employee.objects.count()
     num_projects = Project.objects.count()
     num_tasks = Task.objects.count()
-    tasks = Employee.objects.aggregate(finished_tasks=Sum("number_of_completed_tasks"))
+    tasks = Employee.objects.aggregate(
+        finished_tasks=Sum("number_of_completed_tasks")
+    )
 
     num_visits = request.session.get("num_visits", 0)
     request.session["num_visits"] = num_visits + 1
@@ -39,14 +41,18 @@ def index(request):
 
 class EmployeeListView(generic.ListView):
     model = Employee
-    queryset = Employee.objects.prefetch_related("tasks__project").select_related("position")
     template_name = "task_manager/employee_list.html"
     paginate_by = 3
+    queryset = Employee.objects.prefetch_related(
+        "tasks__project"
+    ).select_related("position")
 
 
 class EmployeeDetailView(LoginRequiredMixin, generic.DetailView):
     model = Employee
-    queryset = Employee.objects.prefetch_related("tasks__project").select_related("position")
+    queryset = Employee.objects.prefetch_related(
+        "tasks__project"
+    ).select_related("position")
 
 
 class EmployeeCreationView(LoginRequiredMixin, generic.CreateView):
@@ -102,7 +108,9 @@ class TaskListView(generic.ListView):
     model = Task
     template_name = "task_manager/task_list.html"
     paginate_by = 3
-    queryset = Task.objects.select_related("project", "type_of_work").prefetch_related("employees__position",)
+    queryset = Task.objects.select_related(
+        "project", "type_of_work"
+    ).prefetch_related("employees__position",)
 
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
@@ -130,4 +138,6 @@ def toggle_assign_to_task(request, pk):
         employee.tasks.remove(pk)
     else:
         employee.tasks.add(pk)
-    return HttpResponseRedirect(reverse_lazy("task_manager:task-detail", args=[pk]))
+    return HttpResponseRedirect(
+        reverse_lazy("task_manager:task-detail", args=[pk])
+    )

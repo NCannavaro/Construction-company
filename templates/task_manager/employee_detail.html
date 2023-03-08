@@ -3,12 +3,6 @@
 {% block content %}
   <a href="{% url 'task_manager:employee-update' pk=employee.pk %}" class="btn btn-primary link-to-page">Update data</a>
 
-  {#  <p><strong>Username:</strong> {{ employee.username }}</p>#}
-  {#  <p><strong>Email:</strong> {{ employee.email }}</p>#}
-  {#  <p><strong>First name:</strong> {{ employee.first_name }}</p>#}
-  {#  <p><strong>Last name:</strong> {{ employee.last_name }}</p>#}
-  {#  <p><strong>Position:</strong> {{ employee.position }}</p>#}
-  {#  <p><strong>Is staff:</strong> {{ employee.is_staff }}</p>#}
   <div class="row">
     <div class="col-lg-4">
       <div class="card mb-4">
@@ -76,8 +70,5 @@
       </div>
     </div>
   </div>
-
-
-
 
 {% endblock %}
