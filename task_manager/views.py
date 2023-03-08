@@ -9,7 +9,7 @@ from django.views import generic
 from task_manager.forms import (
     EmployeeCreationForm,
     EmployeeUpdateForm,
-    ProjectsSearchForm, TaskForm
+    ProjectsSearchForm, TaskForm, ProjectsCreateForm
 )
 from task_manager.models import Employee, Project, Task
 
@@ -102,6 +102,14 @@ class ProjectListView(LoginRequiredMixin, generic.ListView):
 
 class ProjectDetailView(LoginRequiredMixin, generic.DetailView):
     model = Project
+
+
+class ProjectCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Project
+    form_class = ProjectsCreateForm
+
+    def get_success_url(self):
+        return reverse("task_manager:project-detail", args=(self.object.id,))
 
 
 class TaskListView(generic.ListView):

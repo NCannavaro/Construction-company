@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Projects</h1>
+  <h1>
+    Projects
+
+      <a href="{% url "task_manager:project-create"%}" class="btn btn-secondary link-to-page">Project create</a>
+
+  </h1>
 
   {% include 'includes/search_form.html' %}
 

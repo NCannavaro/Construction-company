@@ -37,11 +37,11 @@ class Position(models.Model):
 
 
 class Employee(AbstractUser):
-    phone_number = models.CharField(max_length=13, default=None)
+    phone_number = models.CharField(max_length=13, blank=True, default='',)
     position = models.ForeignKey(
         "Position",
         on_delete=models.CASCADE,
-        default=1
+        default="1"
     )
     number_of_completed_tasks = models.IntegerField(default=0)
 
@@ -64,6 +64,7 @@ class Task(models.Model):
     urgency = models.IntegerField(choices=URGENCY_CHOICES, default=1)
     price = models.FloatField()
     status = models.CharField(max_length=255)
+    creation_date = models.DateTimeField(auto_now_add=True)
     employees = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         related_name="tasks"

@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 
-from task_manager.models import Employee, Task
+from task_manager.models import Employee, Task, Project
 
 
 class EmployeeCreationForm(UserCreationForm):
@@ -48,6 +48,17 @@ class EmployeeUpdateForm(forms.ModelForm):
             "phone_number",
             "position",
         ]
+
+
+class ProjectsCreateForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = (
+            "name",
+            "registration_number",
+            "address",
+        )
+
 
 
 class ProjectsSearchForm(forms.Form):
