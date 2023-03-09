@@ -50,6 +50,15 @@ class EmployeeUpdateForm(forms.ModelForm):
         ]
 
 
+class EmployeesSearchForm(forms.Form):
+    last_name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "search by last name"})
+    )
+
+
 class ProjectsCreateForm(forms.ModelForm):
     class Meta:
         model = Project
