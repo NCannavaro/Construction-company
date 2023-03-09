@@ -85,7 +85,14 @@ class TaskForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = "__all__"
+        fields = (
+            "project",
+            "type_of_work",
+            "description",
+            "urgency",
+            "price",
+            "employees",
+        )
 
 
 class TaskSearchForm(forms.Form):

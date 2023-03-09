@@ -63,7 +63,7 @@ class Task(models.Model):
     description = models.TextField()
     urgency = models.IntegerField(choices=URGENCY_CHOICES, default=1)
     price = models.FloatField()
-    is_completed = models.BooleanField()
+    is_completed = models.BooleanField(default=False)
     creation_date = models.DateTimeField(auto_now_add=True)
     employees = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
