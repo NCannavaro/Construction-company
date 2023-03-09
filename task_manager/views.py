@@ -173,3 +173,17 @@ def toggle_assign_to_task(request, pk):
     return HttpResponseRedirect(
         reverse_lazy("task_manager:task-detail", args=[pk])
     )
+
+
+@login_required
+def closing_task(request, pk):
+    task = Task.objects.get(id=pk)
+    employee = Employee.objects.get(id=request.user.id)
+    if task.is_completed is False:
+        task.is_completed = True
+        employee.number_of_completed_tasks += 1
+        task.save()
+        employee.save()
+    return HttpResponseRedirect(
+        reverse_lazy("task_manager:task-detail", args=[pk])
+    )

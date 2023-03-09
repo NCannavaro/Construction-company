@@ -6,7 +6,11 @@
       Update
   </a>
 
-  <h1>{{ task.project.name }}</h1>
+    <a href="{% url 'task_manager:closing-tasks' pk=task.id %}" class="btn btn-secondary link-to-page">
+      Close
+  </a>
+
+  <h1>{{ task.project.name }} {{ task.is_completed }}</h1>
   <p1>{{ task.description }}</p1>
   <h1>
   Task
