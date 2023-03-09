@@ -12,7 +12,7 @@ from task_manager.forms import (
     ProjectsSearchForm,
     TaskForm,
     ProjectsCreateForm,
-    EmployeesSearchForm
+    EmployeesSearchForm, TaskSearchForm
 )
 from task_manager.models import Employee, Project, Task
 
@@ -143,6 +143,27 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
     queryset = Task.objects.select_related(
         "project", "type_of_work"
     ).prefetch_related("employees__position",)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(TaskListView, self).get_context_data(**kwargs)
+
+        project = self.request.GET.get("project", "")
+        context["search_form"] = TaskSearchForm(
+            initial={
+                "project": project
+            }
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = Task.objects.all()
+
+        form = TaskSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                project__name__icontains=form.cleaned_data["project"]
+            )
+        return queryset
 
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):

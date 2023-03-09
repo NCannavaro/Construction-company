@@ -34,7 +34,7 @@
       <table class="table project-list-table table-nowrap align-middle table-borderless">
         <thead>
         <tr>
-          <th scope="col" class="ps-4" style="width: 50px;">№</th>
+          <th scope="col" class="ps-4" style="width: 50px;"> Creation date</th>
           <th scope="col">Project</th>
           <th scope="col">Type of work</th>
           <th scope="col">Urgency</th>
@@ -48,8 +48,8 @@
         {% for task in task_list %}
           {% if task.urgency == 3 %}
             <tr class="table-danger">
-              <th scope="row" class="ps-4">{{ task.pk }}</th>
-              <td><a href="#" class="text-body">{{ task.project }}</a></td>
+              <th scope="row" class="ps-4">{{ task.creation_date }}</th>
+              <td><a href="{% url 'task_manager:project-detail' pk=task.project.pk %}" class="text-body">{{ task.project }}</a></td>
               <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
               <td>{{ task.get_urgency_display }}</td>
               <td>{{ task.price }}</td>
@@ -71,8 +71,8 @@
 
           {% elif task.urgency == 2 %}
             <tr class="table-warning">
-              <th scope="row" class="ps-4">{{ task.pk }}</th>
-              <td><a href="#" class="text-body">{{ task.project }}</a></td>
+              <th scope="row" class="ps-4">{{ task.creation_date }}</th>
+              <td><a href="{% url 'task_manager:project-detail' pk=task.project.pk %}" class="text-body">{{ task.project }}</a></td>
               <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
               <td>{{ task.get_urgency_display }}</td>
               <td>{{ task.price }}</td>
@@ -93,8 +93,8 @@
             </tr>
           {% else %}
             <tr>
-              <th scope="row" class="ps-4">{{ task.pk }}</th>
-              <td><a href="#" class="text-body">{{ task.project }}</a></td>
+              <th scope="row" class="ps-4">{{ task.creation_date }}</th>
+              <td><a href="{% url 'task_manager:project-detail' pk=task.project.pk %}" class="text-body">{{ task.project }}</a></td>
               <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
               <td>{{ task.get_urgency_display }}</td>
               <td>{{ task.price }}</td>
