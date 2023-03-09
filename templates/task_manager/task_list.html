@@ -2,86 +2,121 @@
 
 {% block content %}
 
-  <div class="main-content">
-  <!-- Table -->
-    <div class="col">
-      <div class="card shadow">
-      <div class="card-header border-0">
-        <h3 class="mb-0">Card tables</h3>
-          <div class="text-right">
-            <button type="button" class="btn btn-outline-info"><a class="text-right" href="{% url 'task_manager:task-create' %}">Add new task</a></button>
-          </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css"
+        integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+        integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous"/>
 
+  <div class="row align-items-center">
+    <div class="col-md-5">
+      <div class="mb-3">
+        <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">({{ paginator.count }})</span>
+        </h5>
       </div>
+    </div>
 
-      <div class="table-responsive">
-        <table class="table align-items-center table-flush">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">Project</th>
-              <th scope="col">Price</th>
-              <th scope="col">Status</th>
-              <th scope="col">Employees</th>
-              <th scope="col">Completion</th>
-              <th scope="col">ID</th>
-            </tr>
-          </thead>
+    {% include 'includes/search_form.html' %}
 
-        {% for task in task_list %}
-
-        <tr>
-
-          <th scope="row">
-            <div class="media align-items-center">
-              <div class="media-body">
-                <span class="mb-0 text-sm">{{ task.project}}</span>
-              </div>
-            </div>
-          </th>
-
-          <td>
-            ${{ task.price }} USD
-          </td>
-
-          <td>
-            <i class="bg-warning"></i> {{ task.get_urgency_display }}
-          </td>
-
-          <td>
-            <div class="avatar-group">
-              {% if task in user.tasks.all %}
-                {% for employeers in task.employees.all %}
-              <a href="{% url 'task_manager:employee-detail' pk=employeers.id %}" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                <span class="mb-0 text-sm">
-                    {{ employeers.full_name }},
-                  {% endfor %}
-                </span>
-              </a>
-              {% endif %}
-            </div>
-          </td>
-
-          <td>
-            <div class="d-flex align-items-center">
-              <span class="mr-2">{{ task.is_completed }}</span>
-              <div>
-                <div class="progress">
-                  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                       aria-valuemax="100" style="width: 60%;"></div>
-                </div>
-              </div>
-            </div>
-          </td>
-
-          <td>
-            <a href="{% url 'task_manager:task-detail' pk=task.id%}"><button  type="button" class="btn btn-info">{{ task.id }}</button></a>
-          </td>
-
-        </tr>
-        {% endfor %}
-        </table>
+    <div class="col-md-5">
+      <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+        <div>
+          <a href="{% url 'task_manager:task-create' %}" data-bs-toggle="modal" data-bs-target=".add-new"
+             class="btn btn-info"><i class="bx bx-plus me-1"></i> Add New</a>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+
+      <table class="table project-list-table table-nowrap align-middle table-borderless">
+        <thead>
+        <tr>
+          <th scope="col" class="ps-4" style="width: 50px;">№</th>
+          <th scope="col">Project</th>
+          <th scope="col">Type of work</th>
+          <th scope="col">Urgency</th>
+          <th scope="col">Price</th>
+          <th scope="col">Status</th>
+          <th scope="col" style="width: 200px;">Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for task in task_list %}
+          {% if task.urgency == 3 %}
+            <tr class="table-danger">
+              <th scope="row" class="ps-4">{{ task.pk }}</th>
+              <td><a href="#" class="text-body">{{ task.project }}</a></td>
+              <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
+              <td>{{ task.get_urgency_display }}</td>
+              <td>{{ task.price }}</td>
+              <td>{{ task.is_completed }}</td>
+              <td>
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a href="{% url 'task_manager:task-update' pk=task.id %}" data-bs-toggle="tooltip"
+                       data-bs-placement="top" title="Edit" class="px-2 text-primary"><i
+                        class="bx bx-pencil font-size-18"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
+                       class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+
+          {% elif task.urgency == 2 %}
+            <tr class="table-warning">
+              <th scope="row" class="ps-4">{{ task.pk }}</th>
+              <td><a href="#" class="text-body">{{ task.project }}</a></td>
+              <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
+              <td>{{ task.get_urgency_display }}</td>
+              <td>{{ task.price }}</td>
+              <td>{{ task.is_completed }}</td>
+              <td>
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a href="{% url 'task_manager:task-update' pk=task.id %}" data-bs-toggle="tooltip"
+                       data-bs-placement="top" title="Edit" class="px-2 text-primary"><i
+                        class="bx bx-pencil font-size-18"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
+                       class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          {% else %}
+            <tr>
+              <th scope="row" class="ps-4">{{ task.pk }}</th>
+              <td><a href="#" class="text-body">{{ task.project }}</a></td>
+              <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
+              <td>{{ task.get_urgency_display }}</td>
+              <td>{{ task.price }}</td>
+              <td>{{ task.is_completed }}</td>
+              <td>
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item">
+                    <a href="{% url 'task_manager:task-update' pk=task.id %}" data-bs-toggle="tooltip"
+                       data-bs-placement="top" title="Edit" class="px-2 text-primary"><i
+                        class="bx bx-pencil font-size-18"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
+                       class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
 {% endblock content %}
