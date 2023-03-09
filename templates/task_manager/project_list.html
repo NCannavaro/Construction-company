@@ -4,7 +4,7 @@
   <h1>
     Projects
 
-      <a href="{% url "task_manager:project-create"%}" class="btn btn-secondary link-to-page">Project create</a>
+      <a href="{% url "task_manager:project-create"%}" class="btn btn-outline-info">Project create</a>
 
   </h1>
 
@@ -12,9 +12,6 @@
 
   {% if project_list %}
     <table>
-      <tr>
-        <th></th>
-      </tr>
     {% for project in project_list %}
     <div class="list-group">
       <a href="{% url "task_manager:project-detail" pk=project.pk%}" class="list-group-item list-group-item-action">{{ project.name }}</a>

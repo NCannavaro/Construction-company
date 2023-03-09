@@ -39,7 +39,7 @@ def index(request):
     return render(request, "task_manager/index.html", context=context)
 
 
-class EmployeeListView(generic.ListView):
+class EmployeeListView(LoginRequiredMixin, generic.ListView):
     model = Employee
     template_name = "task_manager/employee_list.html"
     paginate_by = 3
@@ -112,7 +112,7 @@ class ProjectCreateView(LoginRequiredMixin, generic.CreateView):
         return reverse("task_manager:project-detail", args=(self.object.id,))
 
 
-class TaskListView(generic.ListView):
+class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
     template_name = "task_manager/task_list.html"
     paginate_by = 3

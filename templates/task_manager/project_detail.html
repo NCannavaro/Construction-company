@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ project.name }}</h1>
-  <p1>{{ project.address }}</p1>
-  <p1>{{ project.registration_number }}</p1>
+  <h5>Project name:<p1 class="font-italic"> {{ project.name }}</p1></h5>
+
+  <h5>Address: <p1 class="font-italic">{{ project.address }}</p1></h5>
+
+  <h5>Registration number:<p1 class="font-italic"> {{ project.registration_number }}</p1></h5>
 
 {% endblock %}

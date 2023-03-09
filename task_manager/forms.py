@@ -60,7 +60,6 @@ class ProjectsCreateForm(forms.ModelForm):
         )
 
 
-
 class ProjectsSearchForm(forms.Form):
     name = forms.CharField(
         max_length=255,
