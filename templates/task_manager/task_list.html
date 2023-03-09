@@ -48,7 +48,7 @@
         {% for task in task_list %}
           {% if task.urgency == 3 %}
             <tr class="table-danger">
-              <th scope="row" class="ps-4">{{ task.creation_date }}</th>
+              <th scope="row" class="ps-4">{{ task.creation_date | date:"d.m.Y H:i" }}</th>
               <td><a href="{% url 'task_manager:project-detail' pk=task.project.pk %}" class="text-body">{{ task.project }}</a></td>
               <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
               <td>{{ task.get_urgency_display }}</td>
@@ -71,7 +71,7 @@
 
           {% elif task.urgency == 2 %}
             <tr class="table-warning">
-              <th scope="row" class="ps-4">{{ task.creation_date }}</th>
+              <th scope="row" class="ps-4">{{ task.creation_date | date:"d.m.Y H:i" }}</th>
               <td><a href="{% url 'task_manager:project-detail' pk=task.project.pk %}" class="text-body">{{ task.project }}</a></td>
               <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
               <td>{{ task.get_urgency_display }}</td>
@@ -93,7 +93,7 @@
             </tr>
           {% else %}
             <tr>
-              <th scope="row" class="ps-4">{{ task.creation_date }}</th>
+              <th scope="row" class="ps-4">{{ task.creation_date | date:"d.m.Y H:i" }}</th>
               <td><a href="{% url 'task_manager:project-detail' pk=task.project.pk %}" class="text-body">{{ task.project }}</a></td>
               <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
               <td>{{ task.get_urgency_display }}</td>

@@ -70,5 +70,8 @@ class Task(models.Model):
         related_name="tasks"
     )
 
+    class Meta:
+        ordering = ["-creation_date"]
+
     def __str__(self):
         return f"Project: {self.project}, {self.type_of_work}"
