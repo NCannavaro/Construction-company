@@ -100,5 +100,5 @@ class TaskSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "search by last project"})
+        widget=forms.TextInput(attrs={"placeholder": "search by project"})
     )

@@ -2,18 +2,26 @@
 
 {% block content %}
 
-  <a href="{% url 'task_manager:task-update' pk=task.id %}" class="btn btn-secondary link-to-page">
-      Update
-  </a>
-
-    <a href="{% url 'task_manager:closing-tasks' pk=task.id %}" class="btn btn-secondary link-to-page">
-      Close
-  </a>
-
-  <h1>{{ task.project.name }} {{ task.is_completed }}</h1>
-  <p1>{{ task.description }}</p1>
-  <h1>
-  Task
+  <div class="w3-twothird">
+    <div class="w3-container w3-card w3-white w3-margin-bottom">
+      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+        Detail information of task
+        <a href="{% url 'task_manager:task-update' pk=task.id %}" class="btn btn-secondary link-to-page">
+          Update
+        </a>
+      </h2>
+      <div class="w3-container">
+        <h5 class="w3-opacity">Project: <b>{{ task.project }}</b></h5>
+        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ task.creation_date|date:"d.m.Y H:i" }}<span class="w3-tag w3-teal w3-round"></span></h6>
+        <p>{{ task.is_completed }}</p>
+        <h5 class="w3-opacity">Type of work: <b>{{ task.type_of_work }}</b></h5>
+        <h5 class="w3-opacity">Price: <b>{{ task.price }} $</b></h5>
+        <h5 class="w3-opacity">
+          Employees:
+          <b>
+            {% for employee in task.employees.all %}
+              {{ employee.full_name }}
+            {% endfor %}
           {% if task in user.tasks.all %}
             <a href="{% url 'task_manager:toggle-tasks-assign' pk=task.id %}" class="btn btn-danger link-to-page">
               Delete me from this task
@@ -23,31 +31,18 @@
               Assign me from this task {{ user.projects.all }}
             </a>
           {% endif %}
-  </h1>
-  {% for task in task.employees.all %}
-  <p>{{ task }}</p>
-  {% endfor %}
+          </b>
+        </h5>
+        <h5 class="w3-opacity">Urgency: <b>{{ task.get_urgency_display }}</b></h5>
+        <h5 class="w3-opacity">Description: <b>{{ task.description }}</b></h5>
+        <hr>
+      </div>
+    </div>
+      {% if task.is_completed == False and task in user.tasks.all%}
+        <a href="{% url 'task_manager:closing-tasks' pk=task.id %}" class="btn btn-success link-to-page">
+          Close the task
+        </a>
+      {% endif %}
 
-  <div class="w3-twothird">
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
-          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
-        </div>
-      </div>
-      </div>
+  </div>
 {% endblock %}
