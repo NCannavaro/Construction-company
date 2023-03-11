@@ -4,7 +4,8 @@
 
   <div class="w3-twothird">
     <div class="w3-container w3-card w3-white w3-margin-bottom">
-      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+      <h2 class="w3-text-grey w3-padding-16"><i
+          class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
         Detail information of task
         <a href="{% url 'task_manager:task-update' pk=task.id %}" class="btn btn-secondary link-to-page">
           Update
@@ -12,8 +13,9 @@
       </h2>
       <div class="w3-container">
         <h5 class="w3-opacity">Project: <b>{{ task.project }}</b></h5>
-        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ task.creation_date|date:"d.m.Y H:i" }}<span class="w3-tag w3-teal w3-round"></span></h6>
-        <p>{{ task.is_completed }}</p>
+        <h6 class="w3-text-teal"><i
+            class="fa fa-calendar fa-fw w3-margin-right"></i>{{ task.creation_date|date:"d.m.Y H:i" }}<span
+            class="w3-tag w3-teal w3-round"></span></h6>
         <h5 class="w3-opacity">Type of work: <b>{{ task.type_of_work }}</b></h5>
         <h5 class="w3-opacity">Price: <b>{{ task.price }} $</b></h5>
         <h5 class="w3-opacity">
@@ -22,15 +24,15 @@
             {% for employee in task.employees.all %}
               {{ employee.full_name }}
             {% endfor %}
-          {% if task in user.tasks.all %}
-            <a href="{% url 'task_manager:toggle-tasks-assign' pk=task.id %}" class="btn btn-danger link-to-page">
-              Delete me from this task
-            </a>
-          {% else %}
-            <a href="{% url 'task_manager:toggle-tasks-assign' pk=task.id %}" class="btn btn-success link-to-page">
-              Assign me from this task {{ user.projects.all }}
-            </a>
-          {% endif %}
+            {% if task in user.tasks.all %}
+              <a href="{% url 'task_manager:toggle-tasks-assign' pk=task.id %}" class="btn btn-danger link-to-page">
+                Delete me from this task
+              </a>
+            {% else %}
+              <a href="{% url 'task_manager:toggle-tasks-assign' pk=task.id %}" class="btn btn-success link-to-page">
+                Assign me from this task {{ user.projects.all }}
+              </a>
+            {% endif %}
           </b>
         </h5>
         <h5 class="w3-opacity">Urgency: <b>{{ task.get_urgency_display }}</b></h5>
@@ -38,11 +40,14 @@
         <hr>
       </div>
     </div>
-      {% if task.is_completed == False and task in user.tasks.all%}
-        <a href="{% url 'task_manager:closing-tasks' pk=task.id %}" class="btn btn-success link-to-page">
-          Close the task
-        </a>
-      {% endif %}
+    {% if task.is_completed == False and task in user.tasks.all %}
+      Status: <strong class="alert alert-danger">Not Done!</strong>
+      <a href="{% url 'task_manager:closing-tasks' pk=task.id %}" class="btn btn-success link-to-page">
+        Close the task
+      </a>
+    {% elif task.is_completed == True  and task in user.tasks.all %}
+      Status: <strong class="alert alert-success">Done!</strong>
+    {% endif %}
 
   </div>
 {% endblock %}

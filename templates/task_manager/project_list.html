@@ -3,8 +3,7 @@
 {% block content %}
   <h1>
     Projects
-
-      <a href="{% url "task_manager:project-create"%}" class="btn btn-outline-info">Project create</a>
+    <a href="{% url "task_manager:project-create" %}" class="btn btn-outline-info">Project create</a>
 
   </h1>
 
@@ -12,11 +11,12 @@
 
   {% if project_list %}
     <table>
-    {% for project in project_list %}
-    <div class="list-group">
-      <a href="{% url "task_manager:project-detail" pk=project.pk%}" class="list-group-item list-group-item-action">{{ project.name }}</a>
-    </div>
-    {% endfor %}
+      {% for project in project_list %}
+        <div class="list-group">
+          <a href="{% url "task_manager:project-detail" pk=project.pk %}"
+             class="list-group-item list-group-item-action">{{ project.name }}</a>
+        </div>
+      {% endfor %}
     </table>
   {% else %}
     <p>There are no projects available</p>

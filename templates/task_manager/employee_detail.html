@@ -1,20 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <a href="{% url 'task_manager:employee-update' pk=employee.pk %}" class="btn btn-primary link-to-page">Update data</a>
-
   <div class="row">
     <div class="col-lg-4">
       <div class="card mb-4">
         <div class="card-body text-center">
           <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                class="rounded-circle img-fluid" style="width: 150px;">
-          <h5 class="my-3">John Smith</h5>
+          <h5 class="my-3">{{ employee.username }}</h5>
           <p class="text-muted mb-1">{{ employee.position }}</p>
-          <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
           <div class="d-flex justify-content-center mb-2">
-            <button type="button" class="btn btn-primary">Follow</button>
-            <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+            <button type="button" class="btn btn-outline-primary ms-1"><a href="{% url 'task_manager:employee-update' pk=employee.pk %}">Update data</a></button>
           </div>
         </div>
       </div>
@@ -24,7 +20,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-3">
-              <p class="mb-0">Full Name</p>
+              <p class="mb-0">Name</p>
             </div>
             <div class="col-sm-9">
               <p class="text-muted mb-0">{{ employee.full_name }}</p>
@@ -42,30 +38,22 @@
           <hr>
           <div class="row">
             <div class="col-sm-3">
-              <p class="mb-0">Phone</p>
+              <p class="mb-0">Phone number</p>
             </div>
             <div class="col-sm-9">
-              <p class="text-muted mb-0">XXXXX</p>
+              <p class="text-muted mb-0">{{ employee.phone_number }}</p>
             </div>
           </div>
           <hr>
           <div class="row">
             <div class="col-sm-3">
-              <p class="mb-0">Mobile</p>
+              <p class="mb-0">Completed tasks</p>
             </div>
             <div class="col-sm-9">
-              <p class="text-muted mb-0">{{employee.phone_number}}</p>
+              <p class="text-muted mb-0">{{employee.number_of_completed_tasks}}</p>
             </div>
           </div>
           <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <p class="mb-0">Address</p>
-            </div>
-            <div class="col-sm-9">
-              <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>

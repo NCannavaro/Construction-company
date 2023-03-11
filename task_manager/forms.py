@@ -45,7 +45,6 @@ class EmployeeUpdateForm(forms.ModelForm):
             "first_name",
             "last_name",
             "phone_number",
-            "position",
         ]
 
 
