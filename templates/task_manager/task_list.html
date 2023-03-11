@@ -12,7 +12,7 @@
   <div class="row align-items-center">
     <div class="col-md-5">
       <div class="mb-3">
-        <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">({{ paginator.count }})</span>
+        <h5 class="card-title">Tasks List <span class="text-muted fw-normal ms-2">({{ paginator.count }})</span>
         </h5>
       </div>
     </div>
@@ -54,7 +54,13 @@
               <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
               <td>{{ task.get_urgency_display }}</td>
               <td>{{ task.price }} $</td>
-              <td>{{ task.is_completed }}</td>
+              <td>
+                {% if task.is_completed == True %}
+                  <strong class="alert alert-success">Done!</strong>
+                {% else %}
+                  <strong class="alert alert-danger">Not Done!</strong>
+                {% endif %}
+              </td>
               <td>
                 <ul class="list-inline mb-2">
                   <li class="list-inline-item">
@@ -78,7 +84,15 @@
               <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
               <td>{{ task.get_urgency_display }}</td>
               <td>{{ task.price }} $</td>
-              <td>{{ task.is_completed }}</td>
+
+              <td>
+                {% if task.is_completed == True %}
+                  <strong class="alert alert-success">Done!</strong>
+                {% else %}
+                  <strong class="alert alert-danger">Not Done!</strong>
+                {% endif %}
+              </td>
+
               <td>
                 <ul class="list-inline mb-0">
                   <li class="list-inline-item">
@@ -101,7 +115,13 @@
               <td><span class="badge badge-secondary">{{ task.type_of_work }}</span></td>
               <td>{{ task.get_urgency_display }}</td>
               <td>{{ task.price }} $</td>
-              <td>{{ task.is_completed }}</td>
+              <td>
+                {% if task.is_completed == True %}
+                  <strong class="alert alert-success">Done!</strong>
+                {% else %}
+                  <strong class="alert alert-danger">Not Done!</strong>
+                {% endif %}
+              </td>
               <td>
                 <ul class="list-inline mb-0">
                   <li class="list-inline-item">

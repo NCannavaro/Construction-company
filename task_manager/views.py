@@ -23,9 +23,11 @@ def index(request):
 
     num_employees = Employee.objects.count()
     num_projects = Project.objects.count()
-    num_tasks = Task.objects.count()
-    tasks = Employee.objects.aggregate(
-        finished_tasks=Sum("number_of_completed_tasks")
+    incomplete_tasks = Task.objects.filter(
+        is_completed=False
+    ).count()
+    completed_tasks = Employee.objects.aggregate(
+        completed_tasks=Sum("number_of_completed_tasks")
     )
 
     num_visits = request.session.get("num_visits", 0)
@@ -34,8 +36,8 @@ def index(request):
     context = {
         "num_employees": num_employees,
         "num_projects": num_projects,
-        "num_tasks": num_tasks,
-        "tasks": tasks["finished_tasks"],
+        "num_tasks": incomplete_tasks,
+        "completed_tasks": completed_tasks["completed_tasks"],
         "num_visits": num_visits + 1,
     }
 
