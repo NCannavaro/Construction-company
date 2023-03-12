@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
 
-
 URGENCY_CHOICES = (
     (0, "minor"),
     (1, "medium",),
@@ -37,7 +36,7 @@ class Position(models.Model):
 
 
 class Employee(AbstractUser):
-    phone_number = models.CharField(max_length=13, blank=True, default="",)
+    phone_number = models.CharField(max_length=13, blank=True, default="", )
     position = models.ForeignKey(
         "Position",
         on_delete=models.CASCADE,
