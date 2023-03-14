@@ -15,7 +15,8 @@ from task_manager.views import (
     EmployeeDeleteView,
     toggle_assign_to_task,
     ProjectCreateView,
-    closing_task, TaskDeleteView,
+    closing_task,
+    TaskDeleteView,
 )
 
 urlpatterns = [
