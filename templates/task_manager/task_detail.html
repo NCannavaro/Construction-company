@@ -24,6 +24,7 @@
             {% for employee in task.employees.all %}
               {{ employee.full_name }}
             {% endfor %}
+          {% if task.employees.all.count == 0%}
             {% if task in user.tasks.all %}
               <a href="{% url 'task_manager:toggle-tasks-assign' pk=task.id %}" class="btn btn-danger link-to-page">
                 Delete me from this task
@@ -33,6 +34,7 @@
                 Assign me from this task {{ user.projects.all }}
               </a>
             {% endif %}
+          {% endif %}
           </b>
         </h5>
         <h5 class="w3-opacity">Urgency: <b>{{ task.get_urgency_display }}</b></h5>

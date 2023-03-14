@@ -191,7 +191,7 @@ def toggle_assign_to_task(request, pk):
     employee = Employee.objects.get(id=request.user.id)
     if (
         Task.objects.get(id=pk) in employee.tasks.all()
-    ):  # probably could check if car exists
+    ):  # probably could check if task exists
         employee.tasks.remove(pk)
     else:
         employee.tasks.add(pk)
