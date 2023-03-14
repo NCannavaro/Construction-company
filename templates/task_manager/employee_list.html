@@ -38,9 +38,12 @@
           <th scope="col">Name</th>
           <th scope="col">Position</th>
           <th scope="col">Email</th>
-          <th scope="col">Incomplete tasks</th>
+          <th scope="col">Assigned tasks</th>
           <th scope="col">Completed tasks</th>
+          {% if user.is_superuser %}
           <th scope="col" style="width: 200px;">Action</th>
+          {% endif %}
+
         </tr>
         </thead>
 
@@ -55,6 +58,8 @@
             <td>{{ employee.email }}</td>
             <td>{{ employee.tasks.all.count }}</td>
             <td>{{ employee.number_of_completed_tasks }}</td>
+
+            {% if user.is_superuser %}
             <td>
               <ul class="list-inline mb-0">
                 <li class="list-inline-item">
@@ -69,6 +74,8 @@
                 </li>
               </ul>
             </td>
+            {% endif %}
+
           </tr>
         {% endfor %}
         </tbody>
