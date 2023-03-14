@@ -186,6 +186,11 @@ class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
         return reverse_lazy("task_manager:task-detail", args=(self.object.id,))
 
 
+class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Task
+    success_url = reverse_lazy("task_manager:task-list")
+
+
 @login_required
 def toggle_assign_to_task(request, pk):
     employee = Employee.objects.get(id=request.user.id)

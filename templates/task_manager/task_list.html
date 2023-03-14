@@ -78,7 +78,7 @@
                         class="bx bx-pencil font-size-18"></i></a>
                   </li>
                   <li class="list-inline-item">
-                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
+                    <a href="{% url 'task_manager:task-delete' pk=task.id %}" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
                        class="px-1 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
                   </li>
                 </ul>
