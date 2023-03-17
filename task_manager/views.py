@@ -48,9 +48,6 @@ class EmployeeListView(LoginRequiredMixin, generic.ListView):
     model = Employee
     template_name = "task_manager/employee_list.html"
     paginate_by = 5
-    queryset = Employee.objects.prefetch_related(
-        "tasks__project"
-    ).select_related("position")
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(EmployeeListView, self).get_context_data(**kwargs)
@@ -71,14 +68,14 @@ class EmployeeListView(LoginRequiredMixin, generic.ListView):
             return queryset.filter(
                 last_name__icontains=form.cleaned_data["last_name"]
             )
-        return queryset
+        return queryset.prefetch_related(
+            "tasks__project"
+        ).select_related("position")
 
 
 class EmployeeDetailView(LoginRequiredMixin, generic.DetailView):
     model = Employee
-    queryset = Employee.objects.prefetch_related(
-        "tasks__project"
-    ).select_related("position")
+    queryset = Employee.objects.select_related("position")
 
 
 class EmployeeCreationView(LoginRequiredMixin, generic.CreateView):
@@ -142,9 +139,6 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
     template_name = "task_manager/task_list.html"
     paginate_by = 5
-    queryset = Task.objects.select_related(
-        "project", "type_of_work"
-    ).prefetch_related("employees__position",)
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(TaskListView, self).get_context_data(**kwargs)
@@ -165,7 +159,9 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
             return queryset.filter(
                 project__name__icontains=form.cleaned_data["project"]
             )
-        return queryset
+        return queryset.select_related(
+                "project", "type_of_work"
+        ).prefetch_related("employees__position",)
 
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
