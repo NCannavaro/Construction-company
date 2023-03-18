@@ -9,9 +9,14 @@
                class="rounded-circle img-fluid" style="width: 150px;">
           <h5 class="my-3">{{ employee.username }}</h5>
           <p class="text-muted mb-1">{{ employee.position }}</p>
-          <div class="d-flex justify-content-center mb-2">
-            <button type="button" class="btn btn-outline-primary ms-1"><a href="{% url 'task_manager:employee-update' pk=employee.pk %}">Update data</a></button>
-          </div>
+
+          {% if user == employee %}
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-outline-primary ms-1"><a
+                  href="{% url 'task_manager:employee-update' pk=employee.pk %}">Update data</a></button>
+            </div>
+          {% endif %}
+
         </div>
       </div>
     </div>
@@ -50,7 +55,7 @@
               <p class="mb-0">Completed tasks</p>
             </div>
             <div class="col-sm-9">
-              <p class="text-muted mb-0">{{employee.number_of_completed_tasks}}</p>
+              <p class="text-muted mb-0">{{ employee.number_of_completed_tasks }}</p>
             </div>
           </div>
           <hr>

@@ -17,6 +17,8 @@ from task_manager.views import (
     ProjectCreateView,
     closing_task,
     TaskDeleteView,
+    ProjectUpdateView,
+    ProjectDeleteView,
 )
 
 urlpatterns = [
@@ -46,6 +48,14 @@ urlpatterns = [
     path("projects/create/",
          ProjectCreateView.as_view(),
          name="project-create"
+         ),
+    path("projects/update/<int:pk>/",
+         ProjectUpdateView.as_view(),
+         name="project-update"
+         ),
+    path("projects/delete/<int:pk>/",
+         ProjectDeleteView.as_view(),
+         name="project-delete"
          ),
 
     path("tasks/", TaskListView.as_view(), name="task-list"),

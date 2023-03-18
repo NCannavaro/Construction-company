@@ -2,10 +2,26 @@
 
 {% block content %}
 
-  <h5>Project name:<p1 class="font-italic"> {{ project.name }}</p1></h5>
+  <h5>Project name:
+    <p1 class="font-italic"> {{ project.name }}</p1>
+  </h5>
 
-  <h5>Address: <p1 class="font-italic">{{ project.address }}</p1></h5>
+  <h5>Address:
+    <p1 class="font-italic">{{ project.address }}</p1>
+  </h5>
 
-  <h5>Registration number:<p1 class="font-italic"> {{ project.registration_number }}</p1></h5>
+  <h5>Registration number:
+    <p1 class="font-italic"> {{ project.registration_number }}</p1>
+  </h5>
+  {% if user.is_superuser %}
+    <a href="{% url 'task_manager:project-update' pk=project.pk %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+    <a href="{% url 'task_manager:project-delete' pk=project.pk %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+  {% endif %}
 
 {% endblock %}
+
+

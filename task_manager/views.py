@@ -135,6 +135,19 @@ class ProjectCreateView(LoginRequiredMixin, generic.CreateView):
         return reverse("task_manager:project-detail", args=(self.object.id,))
 
 
+class ProjectUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Project
+    form_class = ProjectsCreateForm
+
+    def get_success_url(self):
+        return reverse("task_manager:project-detail", args=(self.object.id,))
+
+
+class ProjectDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Project
+    success_url = reverse_lazy("task_manager:project-list")
+
+
 class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
     template_name = "task_manager/task_list.html"
@@ -160,8 +173,8 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
                 project__name__icontains=form.cleaned_data["project"]
             )
         return queryset.select_related(
-                "project", "type_of_work"
-        ).prefetch_related("employees__position",)
+            "project", "type_of_work"
+        ).prefetch_related("employees__position", )
 
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
@@ -191,7 +204,7 @@ class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
 def toggle_assign_to_task(request, pk):
     employee = Employee.objects.get(id=request.user.id)
     if (
-        Task.objects.get(id=pk) in employee.tasks.all()
+            Task.objects.get(id=pk) in employee.tasks.all()
     ):  # probably could check if task exists
         employee.tasks.remove(pk)
     else:
