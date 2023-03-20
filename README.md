@@ -42,7 +42,20 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-4. Start the app:
+4. In the same directory as settings.py, create a file called ‘.env’:
+
+```bash
+touch .env
+```
+
+5. Declare your environment variables in ‘.env‘.
+   You can use [djecrety.ir](https://djecrety.ir/)
+
+```bash
+SECRET_KEY=h^z13$qr_s_wd65@gnj7a=xs7t05$w7q8!x_8zsld#
+```
+
+6. Start the app:
 
 ```bash
 python manage.py runserver
