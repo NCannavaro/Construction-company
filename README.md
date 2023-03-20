@@ -2,13 +2,32 @@
 
 Task manager for a construction company.
 
-- Clone the source code:
+This manager was created to maintain a general list of employees, projects and tasks for these projects. A user with
+administrator rights creates tasks and assigns an employee to perform it. After completion, the employee completes the
+task and maintains a general list of completed tasks for each user and the entire company as a whole.
+
+Opportunities for the admin user (manager):
+
+- Create, update, delete projects.
+- Create, update and delete tasks.
+- Complete tasks assigned to this user.
+- Create, delete employees.
+- Update user data.
+
+Opportunities for the regular user (employee):
+
+- Complete tasks assigned to this user.
+- Update user data.
+
+## Running the program locally
+
+1. Clone the source code:
 
 ```bash
 git clone https://github.com/Thirteenthskyi/Construction-company.git
 ```
 
-- Install modules and dependencies:
+2. Install modules and dependencies:
 
 ```bash
 python -m venv venv
@@ -17,29 +36,21 @@ source venv/bin/activate (on macOS)
 pip install -r requirements.txt
 ```
 
-- Use the command to configure the database and tables:
+3. Use the command to configure the database and tables:
 
 ```bash
 python manage.py migrate
 ```
 
-- Use the following command to load prepared data from fixture to test code:
-
-```bash
-python manage.py loaddata db_data.json
-```
-
-- Start the app:
+4. Start the app:
 
 ```bash
 python manage.py runserver
 ```
 
-- After loading data from fixture you can use following superuser (or create another one by yourself):
+- You can use following superuser (or create another one by yourself using the admin page):
     - Login: `admin.user`
     - Password: `Us2ddTX7`
-
-Feel free to add more data using admin panel, if needed.
 
 **BD structure :**
 

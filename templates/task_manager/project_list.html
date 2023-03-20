@@ -3,8 +3,9 @@
 {% block content %}
   <h1>
     Projects
-    <a href="{% url "task_manager:project-create" %}" class="btn btn-outline-info">Project create</a>
-
+    {% if user.is_superuser %}
+      <a href="{% url "task_manager:project-create" %}" class="btn btn-outline-info">Project create</a>
+    {% endif %}
   </h1>
 
   {% include 'includes/search_form.html' %}

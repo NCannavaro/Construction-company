@@ -1,0 +1,953 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add Employee",
+      "content_type": 6,
+      "codename": "add_employee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change Employee",
+      "content_type": 6,
+      "codename": "change_employee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete Employee",
+      "content_type": 6,
+      "codename": "delete_employee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view Employee",
+      "content_type": 6,
+      "codename": "view_employee"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add position",
+      "content_type": 7,
+      "codename": "add_position"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change position",
+      "content_type": 7,
+      "codename": "change_position"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete position",
+      "content_type": 7,
+      "codename": "delete_position"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view position",
+      "content_type": 7,
+      "codename": "view_position"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add project",
+      "content_type": 8,
+      "codename": "add_project"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change project",
+      "content_type": 8,
+      "codename": "change_project"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete project",
+      "content_type": 8,
+      "codename": "delete_project"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view project",
+      "content_type": 8,
+      "codename": "view_project"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add type of work",
+      "content_type": 9,
+      "codename": "add_typeofwork"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change type of work",
+      "content_type": 9,
+      "codename": "change_typeofwork"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete type of work",
+      "content_type": 9,
+      "codename": "delete_typeofwork"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view type of work",
+      "content_type": 9,
+      "codename": "view_typeofwork"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add task",
+      "content_type": 10,
+      "codename": "add_task"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change task",
+      "content_type": 10,
+      "codename": "change_task"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete task",
+      "content_type": 10,
+      "codename": "delete_task"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view task",
+      "content_type": 10,
+      "codename": "view_task"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "task_manager",
+      "model": "employee"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "task_manager",
+      "model": "position"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "task_manager",
+      "model": "project"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "task_manager",
+      "model": "typeofwork"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "task_manager",
+      "model": "task"
+    }
+  },
+  {
+    "model": "task_manager.project",
+    "pk": 1,
+    "fields": {
+      "name": "Hotel Dream",
+      "registration_number": "1",
+      "address": "Gorlovka, Donetskaya oblast, Vul. S�chneva, bld. 1"
+    }
+  },
+  {
+    "model": "task_manager.project",
+    "pk": 2,
+    "fields": {
+      "name": "N. Apartment 37",
+      "registration_number": "2",
+      "address": "Nikopol, Dnepropetrovskaya oblast, Dobrolyubova Ul., bld. 19/3, appt. 37"
+    }
+  },
+  {
+    "model": "task_manager.project",
+    "pk": 3,
+    "fields": {
+      "name": "Riviera House",
+      "registration_number": "3",
+      "address": "Vinnitsa, Vinnitskaya oblast, Vul. Mikhaylovskogo, bld. 82"
+    }
+  },
+  {
+    "model": "task_manager.project",
+    "pk": 4,
+    "fields": {
+      "name": "Od. Apartment 70",
+      "registration_number": "4",
+      "address": "Odessa, Odesskaya oblast, Petrova Generala Ul., bld. 61, appt. 70"
+    }
+  },
+  {
+    "model": "task_manager.project",
+    "pk": 5,
+    "fields": {
+      "name": "Central Park",
+      "registration_number": "5",
+      "address": "Belaya Tserkov, Kievskaya oblast, Zelenaya Ul."
+    }
+  },
+  {
+    "model": "task_manager.project",
+    "pk": 6,
+    "fields": {
+      "name": "Baby House",
+      "registration_number": "6",
+      "address": "Kiev, Kievskaya oblast, Petrova Generala Ul., Sosninykh Semi Ul., bld. 9"
+    }
+  },
+  {
+    "model": "task_manager.project",
+    "pk": 7,
+    "fields": {
+      "name": "Carlson Street",
+      "registration_number": "7",
+      "address": "Chernigov, CHernigovskaya oblast, Volkovicha Vul., bld. 6, appt. 54"
+    }
+  },
+  {
+    "model": "task_manager.typeofwork",
+    "pk": 1,
+    "fields": {
+      "name": "Designing"
+    }
+  },
+  {
+    "model": "task_manager.typeofwork",
+    "pk": 2,
+    "fields": {
+      "name": "Purchasing"
+    }
+  },
+  {
+    "model": "task_manager.typeofwork",
+    "pk": 3,
+    "fields": {
+      "name": "Teaching"
+    }
+  },
+  {
+    "model": "task_manager.typeofwork",
+    "pk": 4,
+    "fields": {
+      "name": "Assembling"
+    }
+  },
+  {
+    "model": "task_manager.typeofwork",
+    "pk": 5,
+    "fields": {
+      "name": "Transportation"
+    }
+  },
+  {
+    "model": "task_manager.typeofwork",
+    "pk": 6,
+    "fields": {
+      "name": "Checking"
+    }
+  },
+  {
+    "model": "task_manager.typeofwork",
+    "pk": 7,
+    "fields": {
+      "name": "Projection"
+    }
+  },
+  {
+    "model": "task_manager.typeofwork",
+    "pk": 8,
+    "fields": {
+      "name": "Correction"
+    }
+  },
+  {
+    "model": "task_manager.position",
+    "pk": 1,
+    "fields": {
+      "name": "Admin",
+      "description": null
+    }
+  },
+  {
+    "model": "task_manager.position",
+    "pk": 2,
+    "fields": {
+      "name": "Project manager",
+      "description": null
+    }
+  },
+  {
+    "model": "task_manager.position",
+    "pk": 3,
+    "fields": {
+      "name": "Engineer",
+      "description": null
+    }
+  },
+  {
+    "model": "task_manager.position",
+    "pk": 4,
+    "fields": {
+      "name": "Designer",
+      "description": null
+    }
+  },
+  {
+    "model": "task_manager.position",
+    "pk": 5,
+    "fields": {
+      "name": "Electrician",
+      "description": null
+    }
+  },
+  {
+    "model": "task_manager.position",
+    "pk": 6,
+    "fields": {
+      "name": "Mounter",
+      "description": null
+    }
+  },
+  {
+    "model": "task_manager.employee",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$SrkoVHVULSm03KbSi8s9wC$zJh6mma4ing2oTFDUjIx3T601TAr9Ymj4bk7tJa8PO8=",
+      "last_login": "2023-03-11T11:50:55.475Z",
+      "is_superuser": true,
+      "username": "admin.user",
+      "first_name": "Admin",
+      "last_name": "User",
+      "email": "admin.user@admin.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-03-10T21:03:13.279Z",
+      "phone_number": "+380677999213",
+      "position": 1,
+      "number_of_completed_tasks": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "task_manager.employee",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$KCTZiIo1Q7Nc1cepsKhTAr$Fn5EZEbupX2eG6/CWnno+dxqjy613JBZHAMj/f9zMaY=",
+      "last_login": "2023-03-11T11:50:55.475Z",
+      "is_superuser": false,
+      "username": "CarlFr",
+      "first_name": "Rick",
+      "last_name": "Novak",
+      "email": "ricknovak@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-03-10T21:03:13.279Z",
+      "phone_number": "+380678969223",
+      "position": 2,
+      "number_of_completed_tasks": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "task_manager.employee",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$KCTZiIo1Q7Nc1cepsKhTAr$Fn5EZEbupX2eG6/CWnno+dxqjy613JBZHAMj/f9zMaY=",
+      "last_login": "2023-03-11T11:50:55.475Z",
+      "is_superuser": false,
+      "username": "Ron",
+      "first_name": "Ronald",
+      "last_name": "Bar",
+      "email": "ronaldar@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-03-10T21:03:13.279Z",
+      "phone_number": "+380667981217",
+      "position": 3,
+      "number_of_completed_tasks": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "task_manager.employee",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$KCTZiIo1Q7Nc1cepsKhTAr$Fn5EZEbupX2eG6/CWnno+dxqjy613JBZHAMj/f9zMaY=",
+      "last_login": "2023-03-11T11:50:55.475Z",
+      "is_superuser": false,
+      "username": "Jefffff",
+      "first_name": "Jef",
+      "last_name": "Jonson",
+      "email": "jonson@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-03-10T21:03:13.279Z",
+      "phone_number": "+380997979123",
+      "position": 5,
+      "number_of_completed_tasks": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "task_manager.employee",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$KCTZiIo1Q7Nc1cepsKhTAr$Fn5EZEbupX2eG6/CWnno+dxqjy613JBZHAMj/f9zMaY=",
+      "last_login": "2023-03-11T11:50:55.475Z",
+      "is_superuser": false,
+      "username": "PrSton",
+      "first_name": "Carl",
+      "last_name": "Preston",
+      "email": "preston@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-03-10T21:03:13.279Z",
+      "phone_number": "+380987876143",
+      "position": 3,
+      "number_of_completed_tasks": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "task_manager.employee",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$KCTZiIo1Q7Nc1cepsKhTAr$Fn5EZEbupX2eG6/CWnno+dxqjy613JBZHAMj/f9zMaY=",
+      "last_login": "2023-03-11T11:50:55.475Z",
+      "is_superuser": false,
+      "username": "JohnPres",
+      "first_name": "John",
+      "last_name": "Rick",
+      "email": "jonson@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-03-10T21:03:13.279Z",
+      "phone_number": "+380667978523",
+      "position": 6,
+      "number_of_completed_tasks": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "task_manager.employee",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$KCTZiIo1Q7Nc1cepsKhTAr$Fn5EZEbupX2eG6/CWnno+dxqjy613JBZHAMj/f9zMaY=",
+      "last_login": "2023-03-11T11:50:55.475Z",
+      "is_superuser": false,
+      "username": "william",
+      "first_name": "Will",
+      "last_name": "Smith",
+      "email": "william@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-03-10T21:03:13.279Z",
+      "phone_number": "+380997745125",
+      "position": 3,
+      "number_of_completed_tasks": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "task_manager.employee",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$KCTZiIo1Q7Nc1cepsKhTAr$Fn5EZEbupX2eG6/CWnno+dxqjy613JBZHAMj/f9zMaY=",
+      "last_login": "2023-03-11T11:50:55.475Z",
+      "is_superuser": false,
+      "username": "RoBoot",
+      "first_name": "Robert",
+      "last_name": "Nickson",
+      "email": "nickson@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-03-10T21:03:13.279Z",
+      "phone_number": "+38067852193",
+      "position": 4,
+      "number_of_completed_tasks": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 1,
+    "fields": {
+      "project": 1,
+      "type_of_work": 1,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 1,
+      "price": 10.0,
+      "is_completed": false,
+      "creation_date": "2023-03-10T21:03:13Z",
+      "employees": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 2,
+    "fields": {
+      "project": 2,
+      "type_of_work": 2,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 2,
+      "price": 11.0,
+      "is_completed": false,
+      "creation_date": "2023-03-10T10:22:00Z",
+      "employees": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 3,
+    "fields": {
+      "project": 3,
+      "type_of_work": 3,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 2,
+      "price": 5.0,
+      "is_completed": false,
+      "creation_date": "2023-03-10T13:22:00Z",
+      "employees": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 4,
+    "fields": {
+      "project": 3,
+      "type_of_work": 2,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 1,
+      "price": 15.0,
+      "is_completed": false,
+      "creation_date": "2023-03-10T16:00:00Z",
+      "employees": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 5,
+    "fields": {
+      "project": 4,
+      "type_of_work": 2,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 2,
+      "price": 13.0,
+      "is_completed": false,
+      "creation_date": "2023-03-11T05:30:00Z",
+      "employees": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 6,
+    "fields": {
+      "project": 4,
+      "type_of_work": 2,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 3,
+      "price": 12.0,
+      "is_completed": false,
+      "creation_date": "2023-03-11T10:50:00Z",
+      "employees": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 7,
+    "fields": {
+      "project": 1,
+      "type_of_work": 1,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 3,
+      "price": 10.0,
+      "is_completed": false,
+      "creation_date": "2023-03-11T11:50:00Z",
+      "employees": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 8,
+    "fields": {
+      "project": 1,
+      "type_of_work": 3,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 2,
+      "price": 15.0,
+      "is_completed": false,
+      "creation_date": "2023-03-11T05:30:00Z",
+      "employees": [
+        6
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 9,
+    "fields": {
+      "project": 3,
+      "type_of_work": 5,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 1,
+      "price": 25.0,
+      "is_completed": false,
+      "creation_date": "2023-03-11T13:00:00Z",
+      "employees": [
+        6
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 10,
+    "fields": {
+      "project": 1,
+      "type_of_work": 6,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 3,
+      "price": 21.0,
+      "is_completed": false,
+      "creation_date": "2023-03-11T13:00:00Z",
+      "employees": [
+        7
+      ]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 11,
+    "fields": {
+      "project": 2,
+      "type_of_work": 4,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "urgency": 1,
+      "price": 25.0,
+      "is_completed": false,
+      "creation_date": "2023-03-11T14:00:00Z",
+      "employees": [
+        8
+      ]
+    }
+  }
+]
