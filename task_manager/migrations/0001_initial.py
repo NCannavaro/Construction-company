@@ -4,11 +4,8 @@ from django.conf import settings
 import django.contrib.auth.models
 import django.contrib.auth.validators
 from django.db import migrations, models
-import django.db.models.deletion
 import django.utils.timezone
 from django.core.management import call_command
-
-from task_manager.models import Position
 
 
 def create_position(apps, schema_editor):
@@ -20,7 +17,6 @@ def create_position(apps, schema_editor):
 
 
 def load_fixture(apps, schema_editor):
-    # No, it's wrong. DON'T DO THIS!
     call_command('loaddata', 'fixture_data.json', app_label='task_manager')
 
 

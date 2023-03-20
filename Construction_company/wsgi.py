@@ -13,7 +13,7 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault(
     "DJANGO_SETTINGS_MODULE",
-    "Construction_company.settings"
+    "Construction_company.settings.local"
 )
 
 application = get_wsgi_application()
