@@ -36,26 +36,19 @@ source venv/bin/activate (on macOS)
 pip install -r requirements.txt
 ```
 
-3. In the same directory as settings.py, create a file called ‘.env’:
+3. `.env_sample` 
+This is a sample .env file for use in local development.
+Duplicate this file as .env in the root of the project
+and update the environment variables to match your
+desired config. You can use [djecrety.ir](https://djecrety.ir/)
 
-```bash
-touch .env
-```
-
-4. Declare your environment variables in ‘.env‘.
-   You can use [djecrety.ir](https://djecrety.ir/)
-
-```bash
-SECRET_KEY=h^z13$qr_s_wd65@gnj7a=xs7t05$w7q8!x_8zsld#
-```
-
-5. Use the command to configure the database and tables:
+4. Use the command to configure the database and tables:
 
 ```bash
 python manage.py migrate
 ```
 
-6. Start the app:
+5. Start the app:
 
 ```bash
 python manage.py runserver
